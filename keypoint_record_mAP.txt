@@ -1,0 +1,11 @@
+COCO results:
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.766
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.936
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.846
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.741
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.809
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 20 ] = 0.795
+ Average Recall     (AR) @[ IoU=0.50      | area=   all | maxDets= 20 ] = 0.946
+ Average Recall     (AR) @[ IoU=0.75      | area=   all | maxDets= 20 ] = 0.864
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets= 20 ] = 0.765
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets= 20 ] = 0.843
