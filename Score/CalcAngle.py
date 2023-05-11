@@ -1,26 +1,29 @@
-import numpy
 import numpy as np
-from std_angle import lower_Angle_std,upper_Angle_std
+from std_angle import lower_Angle_std, upper_Angle_std
+
 
 def get_cos(e1, e2):
-    '''
+    """
     Args:
         e1: array 假定都是正方向都从中点向外
         e2: 假定都是正方向都从中点向外
     Returns: cos 角度
-    '''
+    """
 
     cos_angle = np.dot(e1, e2) / (np.linalg.norm(e1) * np.linalg.norm(e2))
     angle = np.arccos(cos_angle)
     return angle
 
+
 def get_score(angle_upper, angle_lower):
-    alpha = 5.0 #这是一个神奇的超参，你可以根据它构造出你想要的分数
+    alpha = 5.0  # 这是一个神奇的超参，你可以根据它构造出你想要的分数
     MSE = 0
     for i in range(len(angle_lower)):
         MSE += (angle_upper[i] - upper_Angle_std[i]) ** 2
         MSE += (angle_lower[i] - lower_Angle_std[i]) ** 2
-    return 100 - (MSE/8)*alpha
+    return 100 - (MSE / 8) * alpha
+
+
 class Body:
     def __init__(self, upper, keypoint):
         if (upper):
@@ -47,6 +50,7 @@ class Body:
 
     def getAngle(self):
         return [self.A, self.B, self.C, self.D]
+
 
 def CalcFinalScore(keypoint):
     Upper_body = Body(1, keypoint=keypoint)
@@ -81,5 +85,5 @@ if __name__ == "__main__":
                 [69.13893, 479.9902],
                 [82.71532, 574.9706],
                 [75.92212, 622.46075]]
-    #这个数据是主目录下那个戴眼镜的男的
+    # 这个数据是主目录下那个戴眼镜的男的
     CalcFinalScore(keypoint)
