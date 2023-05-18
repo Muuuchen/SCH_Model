@@ -30,6 +30,8 @@ def drawLine(img, keypoint):
        end_point = list(map(int,keypoint[edge[1]]))
        cv2.line(img, tuple(start_point),tuple(end_point),color,thickness=5)
    cv2.line(img, (int(keypoint[0][0]), int(keypoint[0][1])),(int(extra_centor_point[0]), int(extra_centor_point[1])),color,thickness=5 )
+   return img
+
 if __name__ == "__main__":
     img = np.zeros((512,512,3), np.uint8)
     drawLine(img, keypoint)
