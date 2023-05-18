@@ -22,12 +22,14 @@ def drawLine(img, keypoint):
 
    edges=[[3,1],[1,0],[2,0],[4,2],[5,6],[5,7],[7,9],[6,8],[8,10],[5,11],[6,12]
           ,[11,12],[11,13],[13,15],[12,14],[14,16]]
+   extra_centor_point  = [(keypoint[5][0] + keypoint[6][0])/2, (keypoint[5][1] + keypoint[6][1])/2]
+   print(extra_centor_point)
    color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
    for edge in edges:
        start_point =list(map(int,keypoint[edge[0]]))
        end_point = list(map(int,keypoint[edge[1]]))
        cv2.line(img, tuple(start_point),tuple(end_point),color,thickness=5)
-
+   cv2.line(img, (int(keypoint[0][0]), int(keypoint[0][1])),(int(extra_centor_point[0]), int(extra_centor_point[1])),color,thickness=5 )
 if __name__ == "__main__":
     img = np.zeros((512,512,3), np.uint8)
     drawLine(img, keypoint)
