@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import time
 from model import HighResolutionNet
 from draw_utils import draw_keypoints
-
+from Score import draw_line
 import transforms
 if __name__ == '__main__':
     fcap = cv2.VideoCapture(0)

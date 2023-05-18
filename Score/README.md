@@ -86,3 +86,5 @@ SCORE 91.42631023222955
 Process finished with exit code 0
 
 ```
+在后面补充了画线的函数 它定义了有边点集
+然后对应画
