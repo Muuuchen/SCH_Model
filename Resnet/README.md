@@ -48,3 +48,6 @@ If you find this implementation useful and want to cite/mention this page, here 
 
 # 针对HRnet的计数系统
 采用Resnet20网络训练，以置信度阈值作为计数标准。
+
+经过测试 单纯对图像整体进行分类效果并不好 ，因此我觉得还是要提取关键点的一些东西，类似特征去区别
+首先弄个表来区分把
