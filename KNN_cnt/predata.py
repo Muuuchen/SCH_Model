@@ -1,4 +1,4 @@
-
+import csv
 import os
 import json
 from Score.draw_line import drawLine
@@ -8,6 +8,7 @@ import cv2
 import matplotlib.pyplot as plt
 import time
 from model import HighResolutionNet
+from Score.CalcAngle import CalcFinalScore
 from draw_utils import draw_keypoints
 import transforms
 file_name = r'../../datasets/squats_data/train/'
@@ -33,27 +34,33 @@ def process_img(file_name):
 
     # 这里应该对数据集迭代器中的每个元素
 
+    with open('../res/future.csv', 'w') as file:
+        writer =csv.writer(file)
+        file.truncate(0)
+        with torch.no_grad():
+            for img_path_label in DataStream(file_name):
+                img = cv2.imread(img_path_label[0])
+                label = img_path_label[1]
+                img_tensor, target = data_transform(img, {"box": [0, 0, img.shape[1] - 1, img.shape[0] - 1]})
+                img_tensor = torch.unsqueeze(img_tensor, dim=0)
+                start = time.time()
+                outputs = model(img_tensor.to(device))
+                end = time.time()
+                print("infer cost: ",end-start)
 
-    with torch.no_grad():
-        for img_path_label in DataStream(file_name):
-            img = cv2.imread(img_path_label[0])
-            label = img_path_label[1]
-            img_tensor, target = data_transform(img, {"box": [0, 0, img.shape[1] - 1, img.shape[0] - 1]})
-            img_tensor = torch.unsqueeze(img_tensor, dim=0)
-            start = time.time()
-            outputs = model(img_tensor.to(device))
-            end = time.time()
-            print("infer cost: ",end-start)
+                keypoints, scores = transforms.get_final_preds(outputs, [target["reverse_trans"]], True)
+                keypoints = np.squeeze(keypoints)
+                scores = np.squeeze(scores)
+                # print(keypoints,scores)
+                uAngle,lAngle =  CalcFinalScore(keypoints)
+                # print(uAngle,lAngle)
+                wData = lAngle + [label=='up']
+                writer.writerow(wData)
+                # img = drawLine(img,keypoints)
+                # img = cv2.resize(img,(640,480),1,1)
+                # cv2.imshow('img', img)
+                # cv2.waitKey(20000)
 
-            keypoints, scores = transforms.get_final_preds(outputs, [target["reverse_trans"]], True)
-            keypoints = np.squeeze(keypoints)
-            scores = np.squeeze(scores)
-            #print(keypoints,scores)
-            # img = drawLine(img,keypoints)
-            # img = cv2.resize(img,(640,480),1,1)
-            # cv2.imshow('img', img)
-            # cv2.waitKey(10)
-            
 
 # 直接指定用train下的数据和分类讨论构建两种数据类型 后续作处理
 

@@ -1,5 +1,5 @@
 import numpy as np
-from std_angle import lower_Angle_std, upper_Angle_std
+from Score.std_angle import lower_Angle_std, upper_Angle_std
 
 
 def get_cos(e1, e2):
@@ -9,9 +9,13 @@ def get_cos(e1, e2):
         e2: 假定都是正方向都从中点向外
     Returns: cos 角度
     """
-
-    cos_angle = np.dot(e1, e2) / (np.linalg.norm(e1) * np.linalg.norm(e2))
-    angle = np.arccos(cos_angle)
+    if (np.linalg.norm(e1) == 0 or np.linalg.norm(e2) == 0):
+        angle = 0.5
+    else:
+        cos_angle = np.dot(e1, e2) / (np.linalg.norm(e1) * np.linalg.norm(e2))
+        if(cos_angle > 1.0) :
+            cos_angle = 1.0
+        angle = np.arccos(cos_angle)
     return angle
 
 
@@ -50,21 +54,21 @@ class Body:
 
     def getAngle(self):
         return [self.A, self.B, self.C, self.D]
-
-
+    def getANgle_jiaodu(self):
+        return [self.A*(180/3.1415926), self.B*(180/3.1415926), self.C*(180/3.1415926), self.D*(180/3.1415926),]
 def CalcFinalScore(keypoint):
     Upper_body = Body(1, keypoint=keypoint)
     Lower_body = Body(0, keypoint=keypoint)
-    print("upper")
-    print("Edges", Upper_body.getEdges())
-    print("Vector", Upper_body.getVector())
-    print("Angle", Upper_body.getAngle())
-    print("lower")
-    print("Edges", Lower_body.getEdges())
-    print("Vector", Lower_body.getVector())
-    print("Angle", Lower_body.getAngle())
-    print("SCORE", get_score(Upper_body.getAngle(), Lower_body.getAngle()))
-
+    # print("upper")
+    # print("Edges", Upper_body.getEdges())
+    # print("Vector", Upper_body.getVector())
+    # print("Angle", Upper_body.getANgle_jiaodu())
+    # print("lower")
+    # print("Edges", Lower_body.getEdges())
+    # print("Vector", Lower_body.getVector())
+    # print("Angle", Lower_body.getANgle_jiaodu())
+    # print("SCORE", get_score(Upper_body.getAngle(), Lower_body.getAngle()))
+    return Upper_body.getANgle_jiaodu(),Lower_body.getANgle_jiaodu()
 
 if __name__ == "__main__":
     #
