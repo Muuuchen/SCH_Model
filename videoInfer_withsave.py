@@ -13,10 +13,15 @@ import transforms
 if __name__ == '__main__':
     fcap = cv2.VideoCapture(r'../res/cxk.avi')
     success, frame = fcap.read()
+    width = int(fcap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(fcap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"using device: {device}")
     flip_test = True
     resize_hw = (256, 192)
+    fourcc = cv2.VideoWriter_fourcc(*'XVID')
+    out = cv2.VideoWriter(r"../res/cxk_after.avi", fourcc, 30, (width, height))
     weights_path = "../res/weights/model-209.pth"
     keypoint_json_path = "person_keypoints.json"
     assert os.path.exists(weights_path), f"file: {weights_path} does not exist."
@@ -71,5 +76,6 @@ if __name__ == '__main__':
             #plot_img = draw_keypoints(img, keypoints, scores, thresh=0.2, r=7)
             plot_img = drawLine(img,keypoints)
             img = cv2.cvtColor(np.asarray(plot_img), cv2.COLOR_RGB2BGR)
-            cv2.imshow('img',img)
-            cv2.waitKey(1)
+            out.write(img)
+            # cv2.imshow('img',img)
+            # cv2.waitKey(1)
