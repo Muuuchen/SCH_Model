@@ -1,0 +1,274 @@
+.
+├── datasets
+│   └── squats_data
+│       ├── test
+│       │   ├── down
+│       │   │   ├── IMG_20230407_223852.jpg
+│       │   │   ├── IMG_20230407_223920.jpg
+│       │   │   ├── IMG_20230407_223924.jpg
+│       │   │   ├── IMG_20230407_223952.jpg
+│       │   │   ├── IMG_20230407_224056.jpg
+│       │   │   ├── IMG_20230407_224101.jpg
+│       │   │   ├── IMG_20230407_224212.jpg
+│       │   │   ├── IMG_20230407_224220.jpg
+│       │   │   ├── IMG_20230407_224416.jpg
+│       │   │   ├── IMG_20230407_224422.jpg
+│       │   │   ├── IMG_20230407_224550.jpg
+│       │   │   ├── IMG_20230407_224610.jpg
+│       │   │   ├── IMG_20230407_224615.jpg
+│       │   │   ├── IMG_20230407_224629.jpg
+│       │   │   ├── IMG_20230408_195249.jpg
+│       │   │   ├── IMG_20230408_195251.jpg
+│       │   │   ├── IMG_20230408_195256.jpg
+│       │   │   ├── IMG_20230408_195257.jpg
+│       │   │   ├── IMG_20230408_195259.jpg
+│       │   │   ├── IMG_20230408_195406.jpg
+│       │   │   ├── IMG_20230408_195408.jpg
+│       │   │   ├── IMG_20230408_195412.jpg
+│       │   │   ├── IMG_20230408_195413.jpg
+│       │   │   ├── IMG_20230408_195415.jpg
+│       │   │   └── IMG_20230408_195417.jpg
+│       │   └── up
+│       │       ├── IMG_20230407_223303.jpg
+│       │       ├── IMG_20230407_223314.jpg
+│       │       ├── IMG_20230407_223334.jpg
+│       │       ├── IMG_20230407_223527.jpg
+│       │       ├── IMG_20230407_223534.jpg
+│       │       ├── IMG_20230407_223608.jpg
+│       │       ├── IMG_20230407_223705.jpg
+│       │       ├── IMG_20230407_223717.jpg
+│       │       ├── IMG_20230407_223724.jpg
+│       │       ├── IMG_20230407_224253.jpg
+│       │       ├── IMG_20230407_224306.jpg
+│       │       ├── IMG_20230407_224317.jpg
+│       │       ├── IMG_20230407_224343.jpg
+│       │       ├── IMG_20230407_224400.jpg
+│       │       ├── IMG_20230408_194756.jpg
+│       │       ├── IMG_20230408_194759.jpg
+│       │       ├── IMG_20230408_194805.jpg
+│       │       ├── IMG_20230408_194817.jpg
+│       │       ├── IMG_20230408_194826.jpg
+│       │       ├── IMG_20230408_194830.jpg
+│       │       ├── IMG_20230408_194835.jpg
+│       │       ├── IMG_20230408_194841.jpg
+│       │       ├── IMG_20230408_194904.jpg
+│       │       └── IMG_20230408_194945.jpg
+│       ├── train
+│       │   ├── down
+│       │   │   ├── IMG_20230407_223852.jpg
+│       │   │   ├── IMG_20230407_223920.jpg
+│       │   │   ├── IMG_20230407_223924.jpg
+│       │   │   ├── IMG_20230407_223952.jpg
+│       │   │   ├── IMG_20230407_224056.jpg
+│       │   │   ├── IMG_20230407_224101.jpg
+│       │   │   ├── IMG_20230407_224212.jpg
+│       │   │   ├── IMG_20230407_224220.jpg
+│       │   │   ├── IMG_20230407_224416.jpg
+│       │   │   ├── IMG_20230407_224422.jpg
+│       │   │   ├── IMG_20230407_224550.jpg
+│       │   │   ├── IMG_20230407_224610.jpg
+│       │   │   ├── IMG_20230407_224615.jpg
+│       │   │   ├── IMG_20230407_224629.jpg
+│       │   │   ├── IMG_20230408_195249.jpg
+│       │   │   ├── IMG_20230408_195251.jpg
+│       │   │   ├── IMG_20230408_195256.jpg
+│       │   │   ├── IMG_20230408_195257.jpg
+│       │   │   ├── IMG_20230408_195259.jpg
+│       │   │   ├── IMG_20230408_195406.jpg
+│       │   │   ├── IMG_20230408_195408.jpg
+│       │   │   ├── IMG_20230408_195412.jpg
+│       │   │   ├── IMG_20230408_195413.jpg
+│       │   │   ├── IMG_20230408_195415.jpg
+│       │   │   └── IMG_20230408_195417.jpg
+│       │   └── up
+│       │       ├── IMG_20230407_223303.jpg
+│       │       ├── IMG_20230407_223314.jpg
+│       │       ├── IMG_20230407_223334.jpg
+│       │       ├── IMG_20230407_223527.jpg
+│       │       ├── IMG_20230407_223534.jpg
+│       │       ├── IMG_20230407_223608.jpg
+│       │       ├── IMG_20230407_223705.jpg
+│       │       ├── IMG_20230407_223717.jpg
+│       │       ├── IMG_20230407_223724.jpg
+│       │       ├── IMG_20230407_224253.jpg
+│       │       ├── IMG_20230407_224306.jpg
+│       │       ├── IMG_20230407_224317.jpg
+│       │       ├── IMG_20230407_224400.jpg
+│       │       ├── IMG_20230408_194756.jpg
+│       │       ├── IMG_20230408_194759.jpg
+│       │       ├── IMG_20230408_194805.jpg
+│       │       ├── IMG_20230408_194817.jpg
+│       │       ├── IMG_20230408_194826.jpg
+│       │       ├── IMG_20230408_194830.jpg
+│       │       ├── IMG_20230408_194835.jpg
+│       │       ├── IMG_20230408_194841.jpg
+│       │       └── IMG_20230408_194904.jpg
+│       └── val
+│           ├── down
+│           │   ├── IMG_20230407_223852.jpg
+│           │   ├── IMG_20230407_223920.jpg
+│           │   ├── IMG_20230407_223924.jpg
+│           │   ├── IMG_20230407_223952.jpg
+│           │   ├── IMG_20230407_224056.jpg
+│           │   ├── IMG_20230407_224101.jpg
+│           │   ├── IMG_20230407_224212.jpg
+│           │   ├── IMG_20230407_224220.jpg
+│           │   ├── IMG_20230407_224416.jpg
+│           │   ├── IMG_20230407_224422.jpg
+│           │   ├── IMG_20230407_224550.jpg
+│           │   ├── IMG_20230407_224610.jpg
+│           │   ├── IMG_20230407_224615.jpg
+│           │   ├── IMG_20230407_224629.jpg
+│           │   ├── IMG_20230408_195249.jpg
+│           │   ├── IMG_20230408_195251.jpg
+│           │   ├── IMG_20230408_195256.jpg
+│           │   ├── IMG_20230408_195257.jpg
+│           │   ├── IMG_20230408_195259.jpg
+│           │   ├── IMG_20230408_195406.jpg
+│           │   ├── IMG_20230408_195408.jpg
+│           │   ├── IMG_20230408_195412.jpg
+│           │   ├── IMG_20230408_195413.jpg
+│           │   ├── IMG_20230408_195415.jpg
+│           │   └── IMG_20230408_195417.jpg
+│           └── up
+│               ├── IMG_20230407_223303.jpg
+│               ├── IMG_20230407_223314.jpg
+│               ├── IMG_20230407_223334.jpg
+│               ├── IMG_20230407_223527.jpg
+│               ├── IMG_20230407_223534.jpg
+│               ├── IMG_20230407_223608.jpg
+│               ├── IMG_20230407_223705.jpg
+│               ├── IMG_20230407_223717.jpg
+│               ├── IMG_20230407_223724.jpg
+│               ├── IMG_20230407_224253.jpg
+│               ├── IMG_20230407_224306.jpg
+│               ├── IMG_20230407_224317.jpg
+│               ├── IMG_20230407_224343.jpg
+│               ├── IMG_20230407_224400.jpg
+│               ├── IMG_20230408_194756.jpg
+│               ├── IMG_20230408_194759.jpg
+│               ├── IMG_20230408_194805.jpg
+│               ├── IMG_20230408_194817.jpg
+│               ├── IMG_20230408_194826.jpg
+│               ├── IMG_20230408_194830.jpg
+│               ├── IMG_20230408_194835.jpg
+│               ├── IMG_20230408_194841.jpg
+│               ├── IMG_20230408_194904.jpg
+│               └── IMG_20230408_194945.jpg
+├── filetree.txt
+├── res
+│   ├── cxk_after.avi
+│   ├── cxk_after.mp4
+│   ├── cxk.avi
+│   ├── squats_video_01.mp4
+│   ├── squats_video_02.mp4
+│   ├── weights
+│   │   ├── hrnet_w32.pth
+│   │   ├── model-209.pth
+│   │   └── pose_hrnet_w32_256x192.pth
+│   └── weights.zip
+└── SCH_Model
+    ├── add
+    ├── draw_utils.py
+    ├── HRNet.png
+    ├── keypoint_record_mAP.txt
+    ├── key_results.json
+    ├── KNN_cnt
+    │   ├── knn_cnt.py
+    │   ├── predata.py
+    │   └── __pycache__
+    │       └── knn_cnt.cpython-310.pyc
+    ├── make_cnt_dataset.py
+    ├── model
+    │   ├── hrnet.py
+    │   ├── __init__.py
+    │   ├── old_hrnet.py
+    │   └── __pycache__
+    │       ├── hrnet.cpython-310.pyc
+    │       ├── hrnet.cpython-38.pyc
+    │       ├── __init__.cpython-310.pyc
+    │       ├── __init__.cpython-36.pyc
+    │       ├── __init__.cpython-37.pyc
+    │       ├── __init__.cpython-38.pyc
+    │       └── __init__.cpython-39.pyc
+    ├── my_dataset_coco.py
+    ├── person_keypoints.json
+    ├── person.png
+    ├── plot_curve.py
+    ├── predict.py
+    ├── __pycache__
+    │   ├── draw_utils.cpython-310.pyc
+    │   ├── draw_utils.cpython-38.pyc
+    │   ├── transforms.cpython-310.pyc
+    │   └── transforms.cpython-38.pyc
+    ├── README.md
+    ├── requirements.txt
+    ├── res
+    │   ├── down.csv
+    │   ├── future.csv
+    │   └── up.csv
+    ├── Resnet
+    │   ├── inferScore.py
+    │   ├── pretrained_models
+    │   │   ├── resnet110-1d1ed7c2.th
+    │   │   ├── resnet20-12fca82f.th
+    │   │   ├── resnet32-d509ac18.th
+    │   │   ├── resnet44-014dd654.th
+    │   │   └── resnet56-4bfd9763.th
+    │   ├── README.md
+    │   ├── Resnet18.py
+    │   ├── resnet.py
+    │   ├── run.sh
+    │   └── trainer.py
+    ├── results20221022-153008.txt
+    ├── results20221023-093144.txt
+    ├── results20221023-214418.txt
+    ├── results20230202-183724.txt
+    ├── results20230224-232452.txt
+    ├── results20230226-210257.txt
+    ├── runhr.sh
+    ├── Score
+    │   ├── CalcAngle.py
+    │   ├── draw_line.py
+    │   ├── img.png
+    │   ├── __pycache__
+    │   │   ├── CalcAngle.cpython-310.pyc
+    │   │   ├── draw_line.cpython-310.pyc
+    │   │   ├── std_angle.cpython-310.pyc
+    │   │   └── std_angle.cpython-39.pyc
+    │   ├── README.md
+    │   ├── std_angle.py
+    │   └── 微信图片_20230510023015.jpg
+    ├── test_result.jpg
+    ├── test_result_with_new_model.jpg
+    ├── train.py
+    ├── train_utils
+    │   ├── coco_eval.py
+    │   ├── coco_utils.py
+    │   ├── distributed_utils.py
+    │   ├── group_by_aspect_ratio.py
+    │   ├── __init__.py
+    │   ├── loss.py
+    │   ├── __pycache__
+    │   │   ├── coco_eval.cpython-36.pyc
+    │   │   ├── coco_eval.cpython-37.pyc
+    │   │   ├── coco_utils.cpython-36.pyc
+    │   │   ├── coco_utils.cpython-37.pyc
+    │   │   ├── distributed_utils.cpython-36.pyc
+    │   │   ├── distributed_utils.cpython-37.pyc
+    │   │   ├── group_by_aspect_ratio.cpython-36.pyc
+    │   │   ├── group_by_aspect_ratio.cpython-37.pyc
+    │   │   ├── __init__.cpython-36.pyc
+    │   │   ├── __init__.cpython-37.pyc
+    │   │   ├── loss.cpython-36.pyc
+    │   │   ├── loss.cpython-37.pyc
+    │   │   ├── train_eval_utils.cpython-36.pyc
+    │   │   └── train_eval_utils.cpython-37.pyc
+    │   └── train_eval_utils.py
+    ├── transforms.py
+    ├── valhr.sh
+    ├── validation.py
+    ├── videoinfer.py
+    └── videoInfer_withsave.py
+
+26 directories, 245 files
