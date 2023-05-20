@@ -17,7 +17,7 @@ from Score.CalcAngle import CalcFinalScore
 
 
 if __name__ == '__main__':
-    fcap = cv2.VideoCapture(r'../res/cxk.avi')
+    fcap = cv2.VideoCapture(r'../res/squats_video_01.mp4')
     success, frame = fcap.read()
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"using device: {device}")
@@ -88,5 +88,5 @@ if __name__ == '__main__':
             #plot_img = draw_keypoints(img, keypoints, scores, thresh=0.2, r=7)
             plot_img = drawLine(img,keypoints)
             img = cv2.cvtColor(np.asarray(plot_img), cv2.COLOR_RGB2BGR)
-            cv2.imshow('img',img)
-            cv2.waitKey(1)
+            # cv2.imshow('img',img)
+            # cv2.waitKey(1)

@@ -52,7 +52,12 @@ def process_img(file_name):
                 keypoints = np.squeeze(keypoints)
                 scores = np.squeeze(scores)
                 # print(keypoints,scores)
-                uAngle,lAngle =  CalcFinalScore(keypoints)
+                try:
+                    uAngle,lAngle =  CalcFinalScore(keypoints)
+                except ValueError as e:
+                    print(img_path_label)
+                    print(e)
+
                 # print(uAngle,lAngle)
                 wData = lAngle + [label=='up']
                 writer.writerow(wData)

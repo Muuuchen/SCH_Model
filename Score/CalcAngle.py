@@ -9,18 +9,21 @@ def get_cos(e1, e2):
         e2: 假定都是正方向都从中点向外
     Returns: cos 角度
     """
+    angle = 0
     if (np.linalg.norm(e1) == 0 or np.linalg.norm(e2) == 0):
-        angle = 0.5
+        cos_angle = 0
+        # raise ValueError("向量0")
     else:
         cos_angle = np.dot(e1, e2) / (np.linalg.norm(e1) * np.linalg.norm(e2))
         if(cos_angle > 1.0) :
+            #raise ValueError("向量error")
             cos_angle = 1.0
         angle = np.arccos(cos_angle)
     return angle
 
 
 def get_score(angle_lower):
-    alpha = 5.0  # 这是一个神奇的超参，你可以根据它构造出你想要的分数
+    alpha = 10.0  # 这是一个神奇的超参，你可以根据它构造出你想要的分数
     MSE = 0
     for i in range(len(angle_lower)):
         # MSE += (angle_upper[i] - upper_Angle_std[i]) ** 2
