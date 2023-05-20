@@ -19,12 +19,12 @@ def get_cos(e1, e2):
     return angle
 
 
-def get_score(angle_upper, angle_lower):
+def get_score(angle_lower):
     alpha = 5.0  # 这是一个神奇的超参，你可以根据它构造出你想要的分数
     MSE = 0
     for i in range(len(angle_lower)):
-        MSE += (angle_upper[i] - upper_Angle_std[i]) ** 2
-        MSE += (angle_lower[i] - lower_Angle_std[i]) ** 2
+        # MSE += (angle_upper[i] - upper_Angle_std[i]) ** 2
+        MSE += (angle_lower[i]*3.1415926/180 - lower_Angle_std[i]*3.1415926/180) ** 2
     return 100 - (MSE / 8) * alpha
 
 

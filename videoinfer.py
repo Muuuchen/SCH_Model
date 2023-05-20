@@ -6,10 +6,16 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import time
+
+import Score.CalcAngle
 from model import HighResolutionNet
 from draw_utils import draw_keypoints
 from Score.draw_line import  drawLine
 import transforms
+from KNN_cnt.knn_cnt import myKNN
+from Score.CalcAngle import CalcFinalScore
+
+
 if __name__ == '__main__':
     fcap = cv2.VideoCapture(r'../res/cxk.avi')
     success, frame = fcap.read()
@@ -43,6 +49,11 @@ if __name__ == '__main__':
     model.to(device)
     model.eval()
 
+
+    #KNN模块
+    knn = myKNN()
+    knn.train_knn()
+
     while success:
         success, frame = fcap.read()
         img = frame
@@ -66,7 +77,13 @@ if __name__ == '__main__':
 
             keypoints, scores = transforms.get_final_preds(outputs, [target["reverse_trans"]], True)
             keypoints = np.squeeze(keypoints)
-            scores = np.squeeze(scores)
+            # scores = np.squeeze(scores)
+            uAngle, lAngle = CalcFinalScore(keypoints) #获得角度参数
+            # print(lAngle)
+            y_label = knn.predict_knn([lAngle])
+            score = Score.CalcAngle.get_score(lAngle)
+            print("y_label",y_label,"Score",score)
+
 
             #plot_img = draw_keypoints(img, keypoints, scores, thresh=0.2, r=7)
             plot_img = drawLine(img,keypoints)

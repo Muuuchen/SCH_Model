@@ -3,4 +3,4 @@
 
 upper_Angle_std = (3.56, 4.25, 1.52, 0.21)
 
-lower_Angle_std = (3.22, 1.71, 1.52, 0.23)
+lower_Angle_std = (120, 50, 160,100)
