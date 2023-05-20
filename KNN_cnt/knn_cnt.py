@@ -1,6 +1,7 @@
 import csv
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import  KNeighborsClassifier
+import numpy as np
 from sklearn.model_selection  import cross_val_score
 # 打开CSV文件并读取数据
 file_path = '/home/muuuchen/Desktop/HRNet/SCH_Model/res/future.csv'
@@ -28,6 +29,7 @@ class myKNN():
 
     def predict_knn(self,x):
         y_predict = self.knn.predict(x)
+
         return y_predict
 
 
@@ -45,4 +47,7 @@ if __name__ == "__main__":
     knn.fit(x_train, y_train)
     y_predict = knn.predict(x_test)
     percent = knn.score(x_test, y_test)
-    print(percent)
+    k_nearest_indices, k_nearest_distances = knn.kneighbors([x_test[0]], n_neighbors=2)
+    print("预测标签：", y_predict)
+    print("最近的 k 个邻居的索引：", k_nearest_indices)
+    print("最近的 k 个邻居的距离：", k_nearest_distances)

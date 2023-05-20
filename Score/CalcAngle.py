@@ -10,6 +10,8 @@ def get_cos(e1, e2):
     Returns: cos 角度
     """
     angle = 0
+
+
     if (np.linalg.norm(e1) == 0 or np.linalg.norm(e2) == 0):
         cos_angle = 0
         # raise ValueError("向量0")
