@@ -1,7 +1,7 @@
 import csv
-
-from sklearn.neighbors import KNeighborsRegressor
-
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import  KNeighborsClassifier
+from sklearn.model_selection  import cross_val_score
 # 打开CSV文件并读取数据
 file_path = '../res/future.csv'
 def get_data(file_path):
@@ -15,4 +15,32 @@ def get_data(file_path):
             #1 up  #     0 down
         return data_x,data_y
     # 输出数据
-get_data(file_path)
+
+
+class myKNN():
+    def __init__(self):
+        x_data,y_data = get_data(file_path)
+        self.knn = knn = KNeighborsClassifier(n_neighbors=2)
+        self.x_train, self.x_test, self.y_train, self.y_test = train_test_split(x_data, y_data, test_size=0.2)
+
+    def train_knn(self):
+        self.knn.fit(self.x_train,self.y_train)
+
+    def predict_knn(self,x):
+        y_predict = knn.predict(x)
+
+
+if __name__ == "__main__":
+    x_data, y_data = get_data(file_path)
+    k_error = []
+    x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.2)
+    # for k in range(1,10):
+    #     knn = KNeighborsClassifier(n_neighbors=k)
+    #     scores = cross_val_score(knn, x_data, y_data, cv=6, scoring='accuracy')
+    #     k_error.append(1 - scores.mean())
+    # 根据kerror看出k取2的时候误差最小
+    knn = KNeighborsClassifier(n_neighbors=2)
+    knn.fit(x_train, y_train)
+    y_predict = knn.predict(x_test)
+    percent = knn.score(x_test, y_test)
+    print(k_error)
