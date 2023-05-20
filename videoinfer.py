@@ -82,7 +82,10 @@ if __name__ == '__main__':
     avg_win = flut()
     while success:
         success, frame = fcap.read()
+        if not success:
+            break
         img = frame
+
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         img_tensor, target = data_transform(img, {"box": [0, 0, img.shape[1] - 1, img.shape[0] - 1]})
         img_tensor = torch.unsqueeze(img_tensor, dim=0)
@@ -114,18 +117,19 @@ if __name__ == '__main__':
             avg_win.push(score)
             avg_score = avg_win.get_score()
             Confidence.append(avg_score)
-            if(up == 1 and avg_score < 0.2):
+            if(up == 1 and avg_score < 0.3):
                 cnt += 1
                 std_score = get_score(lAngle)
                 up = 0
             if(up == 0 and avg_score >0.85):
                 up = 1
+            print(Confidence)
             img = cv2.putText(img,"score:"+str(std_score),(400,150),cv2.FONT_HERSHEY_SIMPLEX,3,(250,0,0),5)
             img = cv2.putText(img,"cnt:"+str(cnt),(50,150),cv2.FONT_HERSHEY_SIMPLEX,3,(0,0,255),5)
             #plot_img = draw_keypoints(img, keypoints, scores, thresh=0.2, r=7)
             plot_img = drawLine(img,keypoints)
             img = cv2.cvtColor(np.asarray(plot_img), cv2.COLOR_RGB2BGR)
-            img = cv2.resize(img, (640,480),fx=1,fy=1)
-            # cv2.imshow('img',img)
+            #img = cv2.resize(img, (640,480),fx=1,fy=1)
             out.write(img)
+            # cv2.imshow('img',img)
             # cv2.waitKey(1)
