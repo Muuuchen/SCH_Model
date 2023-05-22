@@ -19,10 +19,27 @@ for list in data_list:
         temp.append(float(item))
     data_use.append(temp)
 data_use = np.array(data_use).T
+
+label = ['AP', 'AP2', 'AP3', 'AP4', 'AP5', 'AR1', 'AR2', 'AR3', 'AR4', 'AR5','LOSS']
+#
 x = [i for i in range(len(data_use[0]))]
-for i in range(len(data_use)-1):
-    plt.plot(x, data_use[i])
-#最后一个是学习率 不用画
+# for i in range(len(data_use)-1):
+#     if(i == 10):
+#         plt.plot(x, data_use[i], label=label[i+1])
+#         plt.legend()
+# #最后一个是学习率 不用画
+# plt.show()
+
+
+
+#==========================================================================
+
+import numpy as np
+from sklearn.metrics import precision_recall_curve
+import matplotlib.pyplot as plt
+AP = data_use[0]
+AR = data_use[5]
+plt.plot(x, AP, label=label[0])
+plt.plot(x, AR, label=label[5])
+plt.legend()
 plt.show()
-
-
